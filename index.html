@@ -2,9 +2,45 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>MEN'S</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEN'S — мужская одежда</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Привет, это мой магазин!</h1>
+
+  <!-- ШАПКА САЙТА -->
+  <header class="header">
+    <a href="index.html" class="logo">MEN'S</a>
+    <nav class="nav">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+  <main>
+    <!-- Блок-приветствие -->
+    <section class="hero">
+      <h1>Мужская одежда,<br>которая работает на тебя</h1>
+      <p>Классика и спорт. Выбирай, примеряй, заказывай.</p>
+      <a href="#catalog" class="btn">Смотреть каталог</a>
+    </section>
+
+    <!-- Каталог (пока пустой, товары добавим через JS) -->
+    <section class="catalog" id="catalog">
+      <h2>Каталог</h2>
+      <div class="grid" id="products">
+        <!-- Здесь скоро появятся карточки товаров -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer" id="contact">
+    <p>© 2025 MEN'S. Все права защищены.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
