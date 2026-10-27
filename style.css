@@ -1,0 +1,360 @@
+/* Сброс стилей браузера */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Базовые настройки */
+body {
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  background: #f7f7f7;
+  color: #111;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- ШАПКА ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #111;
+  color: #fff;
+  position: sticky; /* Шапка прилипает к верху при прокрутке */
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nav a {
+  margin-left: 24px;
+  font-size: 15px;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+/* ---------- ГЛАВНЫЙ БЛОК ---------- */
+.hero {
+  padding: 100px 40px 120px;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+/* ---------- КАТАЛОГ ---------- */
+.catalog {
+  padding: 60px 40px 80px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.catalog h2 {
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  /* Автоматическая сетка: карточки сами переносятся на новую строку */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ---------- ПОДВАЛ ---------- */
+.footer {
+  padding: 40px;
+  background: #111;
+  color: #888;
+  text-align: center;
+  font-size: 14px;
+}.card img {
+  width: 100%;
+  height: 350px; /* Высота картинки */
+  object-fit: cover; /* Обрезает фото, чтобы оно заполнило блок без искажений */
+  display: block;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-price {
+  font-weight: bold;
+  margin-bottom: 16px;
+}/* Стили для карточек товаров */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden; /* Чтобы картинка не вылезала за края */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Легкая тень */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ограничиваем размер картинки */
+.card img {
+  width: 100%;
+  height: 350px; /* Фиксированная высота */
+  object-fit: cover; /* Картинка заполняет блок, не искажаясь */
+  display: block;
+}
+
+/* Отступы для текста внутри карточки */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Чтобы кнопки были на одном уровне */
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+/* Кнопка "В корзину" внутри карточки */
+.add-to-cart {
+  margin-top: auto;
+  width: 100%;
+}/* ---------- СТИЛИ ДЛЯ КОРЗИНЫ ---------- */
+.cart-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cart-item img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.cart-item-info {
+  flex-grow: 1; /* Занимает всё свободное место */
+}
+
+.cart-item-info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.cart-item-info p {
+  color: #777;
+  font-size: 15px;
+}
+
+.cart-item-total {
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+.cart-total {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cart-total h3 {
+  font-size: 24px;
+  margin: 0;
+}/* ---------- МОДАЛЬНОЕ ОКНО ЗАКАЗА ---------- */
+.modal {
+  display: none; /* По умолчанию окно скрыто */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Темный фон вокруг окна */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Класс для показа окна через JS */
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.2s;
+}
+
+.close-btn:hover { color: #111; }
+
+.modal-content h2 { margin-bottom: 15px; }
+.modal-content p { margin-bottom: 25px; color: #555; font-size: 15px; }
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.telegram-btn { background: #0088cc; }
+.telegram-btn:hover { background: #006699; }
+.phone-btn { background: #111; }
+.phone-btn:hover { background: #333; }
+/* ---------- БЛОК О НАС ---------- */
+.about {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about h2, .contacts h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-size: 18px;
+  color: #444;
+  max-width: 800px;
+  margin-bottom: 50px;
+  line-height: 1.7;
+}
+
+/* Карточки преимуществ */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.feature-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.feature-item h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.feature-item p {
+  color: #666;
+  font-size: 15px;
+}
+
+/* ---------- БЛОК КОНТАКТЫ ---------- */
+.contacts {
+  padding: 80px 40px;
+  background: #fff; /* Сделаем белый фон для выделения */
+}
+
+.contacts p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.contact-block h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.contact-block p, .contact-block a {
+  font-size: 18px;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.2s;
+}
+
+.contact-block a:hover {
+  color: #006699; /* Цвет при наведении на ссылки */
+}
