@@ -66,7 +66,7 @@ if (cart.length === 0) {
       // 2. Отправляем запрос на Cloudflare Worker
       try {
         checkoutBtn.textContent = 'Отправка...'; // Меняем текст кнопки
-        await fetch('https://https://humble-tapir-7940.highstyle717.deno.net/', {
+        await fetch('https://humble-tapir-7940.highstyle717.deno.net/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: messageText })
