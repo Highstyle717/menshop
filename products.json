@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Спортивный костюм Moncler",
+    "price": 14500,
+    "img": "images/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Худи Hugo + Джинсы",
+    "price": 8900,
+    "img": "images/2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Лонгслив Louis Vuitton",
+    "price": 7900,
+    "img": "images/3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Худи U.S. Polo Assn.",
+    "price": 6500,
+    "img": "images/4.jpg"
+  }
+]
