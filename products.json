@@ -1,26 +1,289 @@
 [
   {
     "id": 1,
-    "name": "Спортивный костюм Moncler",
-    "price": 14500,
-    "img": "images/1.jpg"
+    "name": "Вязаная куртка Louis Vuitton",
+    "category": "Верхняя одежда",
+    "price": 10990,
+    "images": [
+      "images/1.jpg",
+      "images/2.jpg",
+      "images/3.jpg"
+    ]
   },
-  {
+    {
     "id": 2,
-    "name": "Худи Hugo + Джинсы",
-    "price": 8900,
-    "img": "images/2.jpg"
+    "name": "Спортивный костюм Lord Piana",
+    "category": "Спортивные костюмы",
+    "price": 3490,
+    "images": [
+      "images/4.jpg",
+      "images/5.jpg",
+      "images/6.jpg",
+      "images/7.jpg",
+      "images/8.jpg",
+      "images/9.jpg"
+    ]
   },
-  {
+    {
     "id": 3,
+    "name": "Вязаная олимпийка Brunello Cucinelli",
+    "category": "Свитеры и кардиганы",
+    "price": 3490,
+    "images": [
+      "images/10.jpg",
+      "images/11.jpg",
+      "images/12.jpg",
+      "images/13.jpg",
+      "images/14.jpg",
+      "images/15.jpg"
+    ]
+  },
+    {
+    "id": 4,
+    "name": "Джемпер на молнии Brunello Cucinelli",
+    "category": "Свитеры и кардиганы",
+    "price": 10990,
+    "images": ["images/16.jpg"]
+  },
+    {
+    "id": 5,
+    "name": "Джемпер на молнии Moncler (в комплекте)",
+    "category": "Свитеры и кардиганы",
+    "price": 8990,
+    "images": [
+      "images/17.jpg",
+      "images/18.jpg"
+    ]
+  },
+    {
+    "id": 6,
+    "name": "Кеды Guess",
+    "category": "Обувь",
+    "price": 3890,
+    "images": [
+      "images/19.jpg",
+      "images/20.jpg",
+      "images/21.jpg"
+    ]
+  },
+    {
+    "id": 7,
+    "name": "Спортивный костюм U.S. Polo Assn.",
+    "category": "Спортивные костюмы",
+    "price": 3490,
+    "images": [
+      "images/22.jpg",
+      "images/23.jpg",
+      "images/24.jpg",
+      "images/25.jpg",
+      "images/26.jpg",
+      "images/27.jpg",
+      "images/28.jpg",
+      "images/29.jpg"
+    ]
+  },
+    {
+    "id": 8,
+    "name": "Кеды Brunello Cucinelli",
+    "category": "Обувь",
+    "price": 3990,
+    "images": [
+      "images/30.jpg",
+      "images/31.jpg",
+      "images/32.jpg",
+      "images/33.jpg",
+      "images/34.jpg",
+      "images/35.jpg"
+    ]
+  },
+    {
+    "id": 9,
+    "name": "Куртка с капюшоном Hermes",
+    "category": "Верхняя одежда",
+    "price": 3490,
+    "images": ["images/36.jpg"]
+  },
+    {
+    "id": 10,
+    "name": "Кроссовки Hermes",
+    "category": "Обувь",
+    "price": 3990,
+    "images": [
+      "images/37.jpg",
+      "images/38.jpg",
+      "images/39.jpg"
+    ]
+  },
+    {
+    "id": 11,
     "name": "Лонгслив Louis Vuitton",
-    "price": 7900,
-    "img": "images/3.jpg"
+    "category": "Лонгсливы",
+    "price": 2890,
+    "images": [
+      "images/40.jpg",
+      "images/41.jpg",
+      "images/42.jpg",
+      "images/43.jpg"
+    ]
+  },
+    {
+    "id": 12,
+    "name": "Спортивный костюм C.P. Company",
+    "category": "Спортивные костюмы",
+    "price": 3490,
+    "images": [
+      "images/44.jpg",
+      "images/45.jpg",
+      "images/46.jpg",
+      "images/47.jpg"
+    ]
+  },
+    {
+    "id": 13,
+    "name": "Спортивный костюм Louis Vuitton",
+    "category": "Спортивные костюмы",
+    "price": 3490,
+    "images": [
+      "images/48.jpg",
+      "images/49.jpg",
+      "images/50.jpg"
+    ]
+  },
+    {
+    "id": 14,
+    "name": "Стильный образ Hugo (Комплект)",
+    "category": "Готовые образы",
+    "price": 10990,
+    "images": [
+      "images/51.jpg",
+      "images/52.jpg",
+      "images/53.jpg",
+      "images/54.jpg",
+      "images/55.jpg",
+      "images/56.jpg"
+    ]
+  },
+    {
+    "id": 15,
+    "name": "Спортивный костюм U.S. Polo Assn. (с полосками)",
+    "category": "Спортивные костюмы",
+    "price": 3490,
+    "images": [
+      "images/57.jpg",
+      "images/58.jpg",
+      "images/59.jpg",
+      "images/60.jpg",
+      "images/61.jpg",
+      "images/62.jpg"
+    ]
+  },
+    {
+    "id": 16,
+    "name": "Спортивный костюм Moncler",
+    "category": "Спортивные костюмы",
+    "price": 3490,
+    "images": [
+      "images/63.jpg",
+      "images/64.jpg",
+      "images/65.jpg",
+      "images/66.jpg",
+      "images/67.jpg",
+      "images/68.jpg"
+    ]
+  },
+    {
+    "id": 17,
+    "name": "Спортивный костюм с красным принтом",
+    "category": "Спортивные костюмы",
+    "price": 3990,
+    "images": [
+      "images/69.jpg",
+      "images/70.jpg",
+      "images/71.jpg",
+      "images/72.jpg"
+    ]
+  },
+    {
+    "id": 18,
+    "name": "Кеды Hide&Jack",
+    "category": "Обувь",
+    "price": 3690,
+    "images": [
+      "images/73.jpg",
+      "images/74.jpg",
+      "images/75.jpg",
+      "images/76.jpg"
+    ]
+  },
+    {
+    "id": 19,
+    "name": "Стеганая куртка Brunello Cucinelli",
+    "category": "Верхняя одежда",
+    "price": 4490,
+    "images": [
+      "images/77.jpg",
+      "images/78.jpg",
+      "images/79.jpg"
+    ]
+  },
+    {
+    "id": 20,
+    "name": "Стильный образ Brunello Cucinelli (Синий/Терракотовый)",
+    "category": "Готовые образы",
+    "price": 10990,
+    "images": [
+      "images/80.jpg",
+      "images/81.jpg"
+    ]
   },
   {
-    "id": 4,
-    "name": "Худи U.S. Polo Assn.",
-    "price": 6500,
-    "img": "images/4.jpg"
+    "id": 21,
+    "name": "Стильный образ Brunello Cucinelli (Черный/Серый)",
+    "category": "Готовые образы",
+    "price": 12990,
+    "images": [
+      "images/82.jpg",
+      "images/83.jpg"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Стильный образ Brunello Cucinelli (Бордовый)",
+    "category": "Готовые образы",
+    "price": 13990,
+    "images": ["images/84.jpg"]
+  },
+  {
+    "id": 23,
+    "name": "Стильный образ Brunello Cucinelli (Черный с Coach)",
+    "category": "Готовые образы",
+    "price": 11490,
+    "images": ["images/85.jpg"]
+  },
+    {
+    "id": 24,
+    "name": "Кеды Guess",
+    "category": "Обувь",
+    "price": 5990,
+    "images": ["images/86.jpg"]
+  },
+    {
+    "id": 25,
+    "name": "Худи Moncler (с надписью)",
+    "category": "Худи",
+    "price": 2990,
+    "images": [
+      "images/87.jpg",
+      "images/88.jpg"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Худи с логотипом (4 цвета)",
+    "category": "Худи",
+    "price": 2990,
+    "images": [
+      "images/89.jpg"
+    ]
   }
 ]

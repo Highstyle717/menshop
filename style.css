@@ -357,4 +357,263 @@ a {
 
 .contact-block a:hover {
   color: #006699; /* Цвет при наведении на ссылки */
+}/* ---------- ВИРТУАЛЬНАЯ ПРИМЕРКА ---------- */
+.tryon-content {
+  max-width: 500px;
+}
+
+/* ---------- ГАЛЕРЕЯ ТОВАРА ---------- */
+.gallery-content {
+  max-width: 600px; /* Сделали окно чуть шире */
+  padding: 20px;
+}
+
+.main-image-wrapper {
+  width: 100%;
+  height: 400px;
+  background: #f7f7f7;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Картинка вписывается целиком, не обрезаясь */
+}
+
+.thumbnails-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.thumbnail:hover, .thumbnail.active {
+  border-color: #111; /* Выделяем активную миниатюру */
+}/* =========================================
+   АДАПТАЦИЯ ПОД ТЕЛЕФОНЫ (Мобильная версия)
+   ========================================= */
+
+/* Запрещаем сайту быть шире экрана (убираем горизонтальный скролл) */
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  /* 1. Шапка сайта */
+  .header {
+    flex-direction: column; /* Логотип и меню друг под другом */
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 15px; /* Отступы между ссылками */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav a {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  /* 2. Главный экран */
+  .hero {
+    padding: 40px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 32px; /* Уменьшаем огромный заголовок */
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* 3. Каталог */
+  .catalog {
+    padding: 40px 20px;
+  }
+
+  .catalog h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  /* Карточки ставим в ОДНУ колонку */
+  .grid {
+    grid-template-columns: 1fr; 
+    gap: 15px;
+  }
+
+  /* Кнопки в карточке */
+  .card-body > div {
+    flex-wrap: nowrap; /* Не даем кнопкам переноситься */
+  }
+
+  /* 4. Блок О нас и Контакты */
+  .about, .contacts {
+    padding: 40px 20px;
+  }
+
+  .about h2, .contacts h2 {
+    font-size: 26px;
+  }
+
+  .features {
+    grid-template-columns: 1fr; /* Преимущества в один столбец */
+  }
+
+  /* 5. Корзина */
+  .cart-container {
+    padding: 0 15px;
+    margin: 20px auto;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .cart-item img {
+    margin-right: 0;
+  }
+
+  .cart-item-total {
+    margin-left: 0;
+  }
+
+  .cart-total {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  /* 6. Окно галереи (кнопка 👕) */
+  .gallery-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .main-image-wrapper {
+    height: 300px; /* Уменьшаем высоту фото на телефоне */
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+}/* Заголовки категорий в каталоге */
+.category-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e5e5;
+}/* =========================================
+   ИСПРАВЛЕНИЕ СТИЛЕЙ КАТАЛОГА И КАТЕГОРИЙ
+   ========================================= */
+
+/* 1. Отступы для секции каталога, чтобы заголовок не лип к шапке */
+.catalog {
+  padding: 60px 40px 80px;
+}
+
+.catalog h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+/* 2. Стили для кнопок фильтров (таблетки) */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  overflow-x: auto; /* Позволяет скроллить на телефоне */
+  padding-bottom: 5px;
+}
+
+.categories::-webkit-scrollbar {
+  display: none; /* Прячем полосу скролла */
+}
+
+.category-btn {
+  padding: 10px 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 30px; /* Делаем кнопки круглыми */
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  color: #111;
+}
+
+.category-btn:hover {
+  border-color: #111;
+}
+
+.category-btn.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* 3. Стили для заголовков категорий (Спортивные костюмы, Обувь и т.д.) */
+.category-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+/* 4. Сетка для карточек (чтобы они стояли в ряд, а не друг под другом) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* 5. Ограничиваем размер картинок в карточках */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 350px; /* Вот эта строчка не даст картинке растянуться! */
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }

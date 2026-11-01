@@ -31,11 +31,13 @@
     </section>
 
     <!-- Каталог (пока пустой, товары добавим через JS) -->
-    <section class="catalog" id="catalog">
+       <section class="catalog" id="catalog">
       <h2>Каталог</h2>
-      <div class="grid" id="products">
-        <!-- Здесь скоро появятся карточки товаров -->
-      </div>
+      
+      <div class="categories" id="categories-container"></div>
+
+      <!-- Сюда будут вставляться блоки с категориями -->
+      <div id="products"></div>
     </section>
   </main>
 
@@ -89,6 +91,24 @@
     <p style="margin-top: 10px; font-size: 12px;">Сделано с душой в КБР.</p>
   </footer>
 
+   <!-- Окно галереи товара -->
+  <div id="tryon-modal" class="modal">
+    <div class="modal-content gallery-content">
+      <span class="close-btn" id="close-tryon">&times;</span>
+      
+      <!-- Большая картинка -->
+      <div class="main-image-wrapper">
+        <img src="" id="main-gallery-img" alt="Товар">
+      </div>
+      
+      <!-- Миниатюры (переключатели) -->
+      <div class="thumbnails-wrapper" id="thumbnails-container">
+        <!-- Сюда JS добавит маленькие картинки -->
+      </div>
+      
+      <button class="btn close-tryon-btn" style="margin-top: 20px;">Закрыть</button>
+    </div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
