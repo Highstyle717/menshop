@@ -616,4 +616,107 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}/* ---------- ВЫБОР РАЗМЕРА ---------- */
+.size-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.size-btn {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.size-btn:hover {
+  background: #e0e0e0;
+}
+
+.size-btn.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}/* ---------- СТИЛИ ДЛЯ ПОИСКА ---------- */
+.search-wrapper {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+#search-input:focus {
+  border-color: #111;
+}
+
+/* ---------- СТИЛИ ДЛЯ КОРЗИНЫ (+ / - / X) ---------- */
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.qty-btn:hover {
+  background: #ccc;
+}
+
+.qty-number {
+  width: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  color: #d00;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.remove-item-btn:hover {
+  opacity: 0.7;
 }

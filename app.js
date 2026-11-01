@@ -1,91 +1,105 @@
 let allProducts = []; 
-let currentCategory = 'Все'; // Категория по умолчанию
+let currentCategory = 'Все'; 
+let searchQuery = ''; // Текст поиска
 
-// 1. Загрузка товаров
+const clothingSizes = ['M', 'L', 'XL', '2XL', '3XL'];
+const shoeSizes = ['39', '40', '41', '42', '43', '44'];
+
 async function loadProducts() {
   try {
     const response = await fetch('products.json');
     allProducts = await response.json(); 
     
-    renderCategories(); // Рисуем кнопки фильтров
-    renderProducts(currentCategory); // Рисуем товары с группировкой
+    renderCategories(); 
+    renderProducts(); 
   } catch (error) {
     console.error("Ошибка загрузки товаров:", error);
   }
 }
 
-// 2. Отрисовка кнопок категорий (фильтров)
 function renderCategories() {
   const container = document.getElementById('categories-container');
   if (!container) return;
 
-  // Собираем уникальные категории из массива товаров
   const categoriesSet = new Set(allProducts.map(p => p.category));
   const categories = ['Все', ...categoriesSet]; 
   
-  container.innerHTML = ''; // Очищаем старое
+  container.innerHTML = ''; 
 
   categories.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = `category-btn ${cat === currentCategory ? 'active' : ''}`;
     btn.textContent = cat;
     
-    // При клике меняем категорию и перерисовываем
     btn.addEventListener('click', () => {
       currentCategory = cat;
-      renderCategories(); // Обновляем активную кнопку
-      renderProducts(currentCategory); // Обновляем список товаров
+      renderCategories(); 
+      renderProducts(); 
     });
     
     container.appendChild(btn);
   });
 }
 
-// 3. Отрисовка товаров (с разделением на блоки по категориям)
-function renderProducts(categoryFilter) {
+function renderProducts() {
   const container = document.getElementById('products');
   if (!container) return;
   
-  container.innerHTML = ''; // Очищаем всё
+  container.innerHTML = ''; 
 
-  // Фильтруем товары
-  const filteredProducts = categoryFilter === 'Все' 
+  // 1. Сначала фильтруем по категории
+  let filteredProducts = currentCategory === 'Все' 
     ? allProducts 
-    : allProducts.filter(p => p.category === categoryFilter);
+    : allProducts.filter(p => p.category === currentCategory);
 
-  // Группируем товары по категориям
+  // 2. Затем фильтруем по поиску
+  if (searchQuery.trim() !== '') {
+    filteredProducts = filteredProducts.filter(p => 
+      p.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
+  // Если ничего не найдено
+  if (filteredProducts.length === 0) {
+    container.innerHTML = '<p style="padding: 20px; font-size: 18px;">По вашему запросу ничего не найдено 😔</p>';
+    return;
+  }
+
   const grouped = {};
   filteredProducts.forEach(product => {
-    if (!grouped[product.category]) {
-      grouped[product.category] = [];
-    }
+    if (!grouped[product.category]) grouped[product.category] = [];
     grouped[product.category].push(product);
   });
 
-  // Проходимся по каждой группе (категории) и создаем для нее отдельный блок
   for (const [categoryName, products] of Object.entries(grouped)) {
-    
-    // Создаем большой заголовок (например, "Обувь")
     const title = document.createElement('h3');
     title.className = 'category-section-title';
     title.textContent = categoryName;
     container.appendChild(title);
 
-    // Создаем сетку для этой категории
     const grid = document.createElement('div');
     grid.className = 'grid'; 
     
-    // Добавляем карточки в эту сетку
     products.forEach(product => {
       const card = document.createElement('div');
       card.className = 'card';
       const mainImg = product.images[0]; 
+
+      const sizes = product.category === 'Обувь' ? shoeSizes : clothingSizes;
+      const sizesHTML = sizes.map((size, index) => 
+        `<button class="size-btn ${index === 0 ? 'active' : ''}" data-size="${size}">${size}</button>`
+      ).join('');
 
       card.innerHTML = `
         <img src="${mainImg}" alt="${product.name}">
         <div class="card-body">
           <h3 class="card-title">${product.name}</h3>
           <p class="card-price">${product.price.toLocaleString('ru-RU')} ₽</p>
+          
+          <div class="size-selector">
+            ${sizesHTML}
+          </div>
+
           <div style="display: flex; gap: 10px; margin-top: auto;">
             <button class="btn add-to-cart" data-id="${product.id}" style="flex: 1;">В корзину</button>
             <button class="btn tryon-btn" data-id="${product.id}" style="background: #555; width: auto; padding: 10px 15px;" title="Посмотреть все фото">👕</button>
@@ -110,15 +124,36 @@ function updateCartCount() {
   }
 }
 
+// Слушатель событий для поиска и корзины
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+  }
+});
+
 document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('size-btn')) {
+    const selector = event.target.closest('.size-selector');
+    selector.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
   if (event.target.classList.contains('add-to-cart')) {
     const productId = Number(event.target.dataset.id);
-    const existingItem = cart.find(item => item.id === productId);
+    const card = event.target.closest('.card-body');
+    const activeSizeBtn = card.querySelector('.size-btn.active');
+    const selectedSize = activeSizeBtn ? activeSizeBtn.dataset.size : 'Стандарт';
+
+    const existingItem = cart.find(item => item.id === productId && item.size === selectedSize);
 
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      cart.push({ id: productId, quantity: 1 });
+      cart.push({ id: productId, size: selectedSize, quantity: 1 });
     }
 
     localStorage.setItem('myCart', JSON.stringify(cart));
@@ -126,7 +161,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-// --- ЛОГИКА ГАЛЕРЕИ (Кнопка 👕) ---
+// --- ЛОГИКА ГАЛЕРЕИ ---
 const tryonModal = document.getElementById('tryon-modal');
 const mainGalleryImg = document.getElementById('main-gallery-img');
 const thumbnailsContainer = document.getElementById('thumbnails-container');
@@ -171,6 +206,6 @@ window.addEventListener('click', (e) => {
   if (e.target === tryonModal) closeModal();
 });
 
-// Запуск при загрузке страницы
+// Запуск
 loadProducts();
 updateCartCount();
